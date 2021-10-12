@@ -27,7 +27,7 @@
           <li><a href="{% url 'timetable' %}" class="nav-link px-2 text-white"><h3>Timetable</h3></a></li>
           <li><a href="{% url 'calendar' %}" class="nav-link px-2 text-white"><h3>Notes</h3></a></li>
   
-          <li><a href="http://127.0.0.1:8000/admin/" class="nav-link px-2 text-white"><h3>Admin <i class="bi bi-pencil-square"></i></h3></a></li>
+          <li><a data-bs-toggle="modal" href="#exampleModalToggle" class="nav-link px-2 text-white"><h3>Admin <i class="bi bi-pencil-square"></i></h3></a></li>
         </ul>
 
 <!--         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -47,5 +47,28 @@
 {% block calendar %}{% endblock %}
 {% block timetable-page %}{% endblock %}
 
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">Warning!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://thumb.cloud.mail.ru/thumb/xw1/volor-face.jpg" style="width:200px;" class="rounded float-start m-3" alt="my-photo">
+        <h3>Доступ к админке разрешен только этому чуваку из фото.</h3>
+        <p class="text-danger fw-bold">"Логин и пароль можешь спросить у меня, но бля выебу если что-то испортишь"</p>
+      </div>
+      <div class="modal-footer">
+        <!-- <button class="btn bg-dark bg-gradient"  href='www.google.com' ><h5 class="text-light">Open admin panel</h5></button> -->
+        <a href="http://127.0.0.1:8000/admin" class="btn bg-dark bg-gradient" role="button"><h5 class="text-light">Open admin panel</h5></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--         <img src="https://static.thenounproject.com/png/10299-200.png" class="rounded float-start" alt="my-photo">
+        <h3>Доступ к админке разрешен только этому чуваку из фото</h3> -->
 </body>
 </html>
