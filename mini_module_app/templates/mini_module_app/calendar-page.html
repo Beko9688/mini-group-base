@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block calendar %}
+<div class="container my-4">
+  <div class="fs-2 mb-3"><i class="bi bi-calendar-date-fill" style="font-size: 3rem; color:;"></i> Календарь</div>
+
+<div class="row mb-3 my-4">
+    {% for note in notes %}
+    <div class="col-md-4 themed-grid-col"><div class="d-grid gap-2"><div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header"><h5>{{note.title}}</h5></div>
+  <div class="card-body">
+    <h5 class="card-title">{{note.note}}</h5>
+<!--     <p class="card-text">{{note.note}}</p> -->
+  </div>
+  </div>
+  </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+{% endblock %}

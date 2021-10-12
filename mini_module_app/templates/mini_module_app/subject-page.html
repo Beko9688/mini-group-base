@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block subject-page %}
+<div class="container my-4">
+  <h1>{{subject_name}} | {{type_name}}</h1>
+  {% for file in files %}
+  <div class="row mb-3 my-4">
+      <div class="col-md-8 themed-grid-col bg-light">
+        <div class="fs-2 mb-3">
+        {% if file.extension == '.docx' or file.extension == '.doc' %}
+        <i class="bi bi-file-earmark-text-fill" style="font-size: 3rem; color:;"></i>
+        {% elif file.extension == '.pdf' %}
+        <i class="bi bi-file-earmark-pdf-fill" style="font-size: 3rem; color:;"></i>
+        {% elif file.extension == '.jfif' or file.extension == '.jpeg' or file.extension == '.jpg' or file.extension == '.png' %}
+        <i class="bi bi-file-image-fill" style="font-size: 3rem; color:;"></i>
+        {% elif file.extension == '.pptx' or file.extension == '.ppt' %}
+        <i class="bi bi-file-ppt-fill" style="font-size: 3rem; color:;"></i>
+        {% elif file.extension == '.xlsx' or file.extension == '.xls' %}
+        <i class="bi bi-file-spreadsheet-fill" style="font-size: 3rem; color:;"></i>
+        {% else %}
+        <i class="bi bi-file-earmark-text-fill" style="font-size: 3rem; color:;"></i>
+        {% endif %}
+              {{file.title}}
+        </div>
+      </div>
+      <div class="col-6 col-md-4 themed-grid-col bg-light"><a href="{% url 'download' file.pk %}"><i class="bi bi-arrow-down-square-fill" style="font-size: 3rem; color:; cursor: pointer;"></i></a>
+      </div>
+  </div>
+  {% empty %}
+   <hr>
+   <h3 class="my-5 text-muted">Здесь пока нет никаких файлов</h3>
+   <hr>
+  {% endfor %}   
+</div>
+{% endblock %}
